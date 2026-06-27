@@ -1,0 +1,147 @@
+/*
+=========================================================
+ESTILOS DEL COMPONENTE: Contacto
+=========================================================
+*/
+
+.contacto{
+
+    flex:1.8;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
+
+}
+
+.contacto h2{
+
+    text-align:center;
+
+    font-size:40px;
+
+    color:#1f2937;
+
+    margin-bottom:15px;
+
+}
+
+.contacto p{
+
+    text-align:center;
+
+    color:#555;
+
+    font-size:18px;
+
+    margin-bottom:35px;
+
+}
+
+.contacto form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.contacto input,
+
+.contacto select,
+
+.contacto textarea{
+
+    padding:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:17px;
+
+    font-family:inherit;
+
+    transition:.3s;
+
+}
+
+.contacto input:focus,
+
+.contacto select:focus,
+
+.contacto textarea:focus{
+
+    outline:none;
+
+    border-color:#99c5ff;
+
+    box-shadow:0 0 8px rgba(153,197,255,.35);
+
+}
+
+.contacto textarea{
+
+    resize:none;
+
+}
+
+.contacto button{
+
+    padding:16px;
+
+    background:#99c5ff;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.contacto button:hover{
+
+    background:#6fa8ff;
+
+    transform:translateY(-2px);
+
+}
+
+.mensaje{
+
+    margin-top:25px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:green;
+
+}
+.contacto-mapa{
+
+    width:90%;
+
+    margin:60px auto;
+
+    display:flex;
+
+    gap:30px;
+
+    align-items:stretch;
+}

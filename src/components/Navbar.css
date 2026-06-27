@@ -1,0 +1,22 @@
+.navbar{
+    background:#111827;
+    padding:12px 0;
+}
+
+.menu{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    gap:35px;
+}
+
+.menu li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.menu li a:hover{
+    color:#60a5fa;
+}

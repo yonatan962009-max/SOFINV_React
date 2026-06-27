@@ -1,0 +1,47 @@
+/*
+=========================================================
+ESTILOS DEL COMPONENTE MAPA
+=========================================================
+*/
+
+.mapa{
+
+    flex:1;
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:25px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
+
+    min-height: 460px;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.mapa h2{
+
+    margin: 0 0 20px;
+
+    text-align: center;
+
+    font-size: 28px;
+
+}
+
+.mapa iframe{
+
+    width:100%;
+
+    flex:1;
+
+    border:none;
+
+    border-radius:12px;
+
+}
