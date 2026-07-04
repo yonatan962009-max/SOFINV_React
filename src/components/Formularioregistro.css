@@ -1,0 +1,183 @@
+/*
+=========================================================
+ESTILOS DEL COMPONENTE: FormularioRegistro
+
+Descripción:
+Estilos para el formulario de registro del sistema SOFINV.
+
+=========================================================
+*/
+
+.registro{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #99c5ff,
+        #dfefff
+    );
+
+}
+
+.registro-card{
+
+    width:550px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:40px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.18);
+
+    text-align:center;
+
+    animation:aparecer .6s ease;
+
+}
+
+.registro-card img{
+
+    width:150px;
+
+    margin-bottom:20px;
+
+}
+
+.registro-card h1{
+
+    font-size:38px;
+
+    color:#1f2937;
+
+    margin-bottom:30px;
+
+}
+
+.registro-card form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.registro-card input{
+
+    padding:15px;
+
+    font-size:17px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+}
+
+.registro-card input:focus{
+
+    outline:none;
+
+    border-color:#99c5ff;
+
+    box-shadow:0 0 8px rgba(153,197,255,.35);
+
+}
+
+.registro-card button{
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#99c5ff;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.registro-card button:hover{
+
+    background:#6fa8ff;
+
+    transform:translateY(-2px);
+
+}
+
+/* Botón volver */
+
+.volver{
+
+    margin-top:20px;
+
+    background:#6c757d !important;
+
+}
+
+.volver:hover{
+
+    background:#555 !important;
+
+}
+
+/*
+=========================================================
+Mensaje de validación
+=========================================================
+*/
+
+.mensaje{
+
+    margin-top:20px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    color:#d9534f;
+
+}
+
+
+/* Animación */
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}

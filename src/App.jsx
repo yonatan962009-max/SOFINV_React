@@ -8,11 +8,25 @@ import "./App.css";
 import Contacto from "./components/Contacto";
 import Mapa from "./components/Mapa";
 import Footer from "./components/Footer";
+import Inicio from "./components/Inicio"; 
+import FormularioRegistro from "./components/FormularioRegistro";
+import FormularioLogin from "./components/FormularioLogin";
 
 function App() {
 
   // Estado que almacena la categoría seleccionada
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
+  /*=========================================================
+  Estado que controla qué pantalla se muestra.
+  inicio
+  login
+  registro
+  sistema
+  =========================================================
+  */
+ const [pantalla, setPantalla] = useState("inicio");
+
+
 
   // Información de las categorías
   const categorias = [
@@ -65,6 +79,67 @@ function App() {
       ]
     }
   ];
+  /*
+=========================================================
+Si el usuario aún no ha iniciado sesión,
+se muestra la pantalla de bienvenida.
+=========================================================
+*/
+
+if (pantalla === "inicio") {
+
+  return (
+
+    <Inicio
+      onLogin={() => setPantalla("login")}
+      onRegistro={() => setPantalla("registro")}
+    />
+
+  );
+
+}
+
+/*
+=========================================================
+Muestra el formulario de registro.
+=========================================================
+*/
+
+if (pantalla === "registro") {
+
+  return (
+
+    <FormularioRegistro
+
+      volver={() => setPantalla("inicio")}
+
+    />
+
+  );
+
+}
+
+/*
+=========================================================
+Muestra el formulario de inicio de sesión.
+=========================================================
+*/
+
+if (pantalla === "login") {
+
+  return (
+
+    <FormularioLogin
+
+      volver={() => setPantalla("inicio")}
+
+      ingresarSistema={() => setPantalla("sistema")}
+
+    />
+
+  );
+
+}
 
   return (
     <>

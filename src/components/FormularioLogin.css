@@ -1,0 +1,180 @@
+/*
+=========================================================
+ESTILOS DEL COMPONENTE: FormularioLogin
+=========================================================
+*/
+
+.login{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #99c5ff,
+        #dfefff
+    );
+
+}
+
+.login-card{
+
+    width:500px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:40px;
+
+    text-align:center;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.18);
+
+    animation:aparecer .6s ease;
+
+}
+
+.login-card img{
+
+    width:150px;
+
+    margin-bottom:20px;
+
+}
+
+.login-card h1{
+
+    font-size:38px;
+
+    color:#1f2937;
+
+    margin-bottom:30px;
+
+}
+
+.login-card form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.login-card input{
+
+    padding:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:17px;
+
+    transition:.3s;
+
+}
+
+.login-card input:focus{
+
+    outline:none;
+
+    border-color:#99c5ff;
+
+    box-shadow:0 0 8px rgba(153,197,255,.35);
+
+}
+
+.login-card button{
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#99c5ff;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.login-card button:hover{
+
+    background:#6fa8ff;
+
+    transform:translateY(-2px);
+
+}
+
+.volver{
+
+    margin-top:20px;
+
+    background:#6c757d !important;
+
+}
+
+.volver:hover{
+
+    background:#555 !important;
+
+}
+
+.mensaje{
+
+    margin-top:20px;
+
+    font-weight:bold;
+
+    font-size:17px;
+
+}
+
+.mensaje.success{
+
+    color:#28a745;
+
+}
+
+.mensaje.error{
+
+    color:#dc3545;
+
+}
+
+/* Animación */
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}

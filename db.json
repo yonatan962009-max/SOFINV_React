@@ -1,0 +1,19 @@
+{
+  "usuarios": [
+    {
+      "nombre": "Leidy",
+      "usuario": "Rodriguez",
+      "correo": "Cartera@gmail.com",
+      "password": "ÑOL#1224",
+      "id": "wRd-uDlOcLo"
+    },
+    {
+      "nombre": "Yonatan ",
+      "usuario": "Cañon",
+      "correo": "almacen@gmail.com",
+      "password": "FAJO#1424",
+      "id": "KIjTsWBEf6M"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
