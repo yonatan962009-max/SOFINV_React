@@ -16,9 +16,8 @@ Conceptos React utilizados
 */
 
 import { useState } from "react";
-
 import "./FormularioLogin.css";
-import { obtenerUsuarios } from "../services/api";
+import { iniciarSesion as autenticarUsuario } from "../services/api";
 
 function FormularioLogin({ volver, ingresarSistema }) {
 
@@ -28,146 +27,121 @@ function FormularioLogin({ volver, ingresarSistema }) {
     =====================================
     */
 
-const [correo, setCorreo] = useState("");
-
-const [password, setPassword] = useState("");
-
-const [mensaje, setMensaje] = useState("");
-
-const [tipoMensaje, setTipoMensaje] = useState("");
+    const [correo, setCorreo] = useState("");
+    const [password, setPassword] = useState("");
+    const [mensaje, setMensaje] = useState("");
+    const [tipoMensaje, setTipoMensaje] = useState("");
 
     /*
     =====================================
     Inicio de sesión
     =====================================
     */
-   const iniciarSesion = async (e) => {
 
-    e.preventDefault();
-    
-    if(correo === "" || password === ""){
-        
-        setTipoMensaje("error");
-        
-        setMensaje("Debe completar todos los campos.");
-        
-        return;
-    }
+    const manejarLogin = async (e) => {
 
-    try{
+        e.preventDefault();
 
-        const usuarios = await obtenerUsuarios();
+        if (correo === "" || password === "") {
 
-        const usuarioEncontrado = usuarios.find(
+            setTipoMensaje("error");
 
-            (usuario)=>
+            setMensaje("Debe completar todos los campos.");
 
-                usuario.correo === correo &&
+            return;
+        }
 
-                usuario.password === password
+        try {
 
-        );
-        
-    if(usuarioEncontrado){
-        
-        setTipoMensaje("success");
-        setMensaje("✅ Inicio de sesión exitoso. Bienvenido a SOFINV.");
-        
-        setTimeout(() => {
+            const resultado = await autenticarUsuario(
+                correo,
+                password
+            );
 
-        ingresarSistema();
-    
-    },1500);
+            console.log(
+                "Usuario autenticado:",
+                resultado.usuario
+            );
 
-}else{
+            setTipoMensaje("success");
 
-    setTipoMensaje("error");
+            setMensaje(
+                "✅ Inicio de sesión exitoso. Bienvenido a SOFINV."
+            );
 
-    setMensaje("❌ Correo o contraseña incorrectos.");
+            setTimeout(() => {
 
-}
+                ingresarSistema();
 
-    }catch(error){
+            }, 1500);
 
-        console.error(error);
+        } catch (error) {
 
-        setTipoMensaje("error");
+            console.error(
+                "Error al iniciar sesión:",
+                error
+            );
 
-        setMensaje("No fue posible conectar con el servidor.");
+            setTipoMensaje("error");
 
-    }
+            setMensaje(
+                "❌ Correo o contraseña incorrectos."
+            );
+        }
+    };
 
-};
-
-    return(
+    return (
 
         <section className="login">
 
             <div className="login-card">
 
                 <img
-
                     src="/IMAGES/Logo SOFINV pagina.png"
-
                     alt="SOFINV"
-
                 />
 
                 <h1>Iniciar sesión</h1>
 
-                <form onSubmit={iniciarSesion}>
+                <form onSubmit={manejarLogin}>
 
                     <input
-
                         type="email"
-
                         placeholder="Correo electrónico"
-
                         value={correo}
-
-                        onChange={(e)=>setCorreo(e.target.value)}
-
+                        onChange={(e) =>
+                            setCorreo(e.target.value)
+                        }
                     />
 
                     <input
-
                         type="password"
-
                         placeholder="Contraseña"
-
                         value={password}
-
-                        onChange={(e)=>setPassword(e.target.value)}
-
+                        onChange={(e) =>
+                            setPassword(e.target.value)
+                        }
                     />
 
-                    <button>
-
+                    <button type="submit">
                         Ingresar
-
                     </button>
 
                 </form>
 
                 {
-
                     mensaje &&
                     <p className={`mensaje ${tipoMensaje}`}>
                         {mensaje}
                     </p>
-
                 }
 
                 <button
-
+                    type="button"
                     className="volver"
-
                     onClick={volver}
-
                 >
-
                     ← Volver
-
                 </button>
 
             </div>
@@ -175,7 +149,6 @@ const [tipoMensaje, setTipoMensaje] = useState("");
         </section>
 
     );
-
 }
 
 export default FormularioLogin;

@@ -98,3 +98,382 @@ body {
     gap: 30px;
 }
 
+/* =========================================================
+   MÓDULO DE PRODUCTOS - SOFINV
+   ========================================================= */
+
+.contenedor-productos {
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+/* Tarjeta individual del producto */
+
+.tarjeta-producto {
+    width: 260px;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Nombre del producto */
+
+.tarjeta-producto h3 {
+    color: #0b2948;
+    margin-bottom: 15px;
+}
+
+/* Información del producto */
+
+.tarjeta-producto p {
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Código del producto */
+
+.tarjeta-producto .codigo {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Cantidad disponible */
+
+.tarjeta-producto .cantidad {
+    font-weight: bold;
+}
+
+/* =========================================================
+   CAMPO DESCRIPCIÓN - FORMULARIO DE PRODUCTOS
+   ========================================================= */
+
+.agregar-producto textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.agregar-producto textarea:focus {
+    outline: none;
+    border: 2px solid #8e006b;
+}
+
+/* =========================================================
+   MÓDULO DE PRODUCTOS - SOFINV
+   ========================================================= */
+
+.productos {
+    width: 92%;
+    max-width: 1400px;
+    min-height: 700px;
+    margin: 25px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-sizing: border-box;
+}
+
+/* Título */
+
+.productos h1 {
+    margin: 0 0 20px 0;
+    color: #101c2c;
+    font-size: 32px;
+}
+
+/* =========================================================
+   BOTÓN REGISTRAR PRODUCTO
+   ========================================================= */
+
+.btn-registrar-producto {
+    background: #0d1b2e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 11px 18px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-registrar-producto:hover {
+    background: #1c3555;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   ESTADO VACÍO
+   ========================================================= */
+
+.productos-vacio {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.icono-productos {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #f1f3f6;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.productos-vacio h2 {
+    color: #536174;
+    margin: 10px 0;
+    font-size: 23px;
+}
+
+.productos-vacio p {
+    color: #66758a;
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   LISTA DE PRODUCTOS
+   ========================================================= */
+
+.lista-productos {
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   TARJETA DE PRODUCTO
+   ========================================================= */
+
+.tarjeta-producto {
+    display: flex;
+
+    background: #ffffff;
+
+    border: 1px solid #e0e4e9;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.08);
+
+    transition: 0.2s;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Icono de la tarjeta */
+
+.icono-tarjeta {
+    width: 55px;
+    height: 55px;
+
+    min-width: 55px;
+
+    border-radius: 50%;
+
+    background: #f1f3f6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+
+    margin-right: 15px;
+}
+
+
+/* Información */
+
+.informacion-producto {
+    flex: 1;
+}
+
+.informacion-producto h3 {
+    margin: 0 0 10px 0;
+
+    color: #101c2c;
+
+    font-size: 18px;
+}
+
+.informacion-producto p {
+    margin: 6px 0;
+
+    color: #536174;
+
+    font-size: 14px;
+}
+
+.descripcion-producto {
+    border-top: 1px solid #e2e5e9;
+
+    margin-top: 12px !important;
+
+    padding-top: 10px;
+}
+
+/* =========================================================
+   FORMULARIO REGISTRAR PRODUCTO - SOFINV
+   ========================================================= */
+
+.agregar-producto {
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+}
+
+.agregar-producto h2 {
+    text-align: center;
+    color: #101c2c;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+.agregar-producto form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* Contenedores de cada campo */
+
+.agregar-producto form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+/* Etiquetas */
+
+.agregar-producto label {
+    color: #101c2c;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+/* Campos */
+
+.agregar-producto input,
+.agregar-producto textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd1d8;
+    border-radius: 7px;
+    font-size: 15px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Efecto al seleccionar un campo */
+
+.agregar-producto input:focus,
+.agregar-producto textarea:focus {
+    outline: none;
+    border: 2px solid #8dbcf5;
+}
+
+
+/* Descripción */
+
+.agregar-producto textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+
+/* =========================================================
+   BOTÓN REGISTRAR
+   ========================================================= */
+
+.agregar-producto form button {
+    align-self: center;
+
+    background: #0d1b2e;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 12px 25px;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.agregar-producto form button:hover {
+    background: #1c3555;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MENSAJE
+   ========================================================= */
+
+.mensaje-producto {
+    text-align: center;
+    margin-top: 20px;
+
+    color: #1f6b3a;
+    font-weight: bold;
+}

@@ -1,34 +1,44 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+
 import CardCategoria from "./components/CardCategoria";
 import DetalleCategoria from "./components/DetalleCategoria";
-import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Slider from "./components/Slider";
-import "./App.css";
 import Contacto from "./components/Contacto";
 import Mapa from "./components/Mapa";
 import Footer from "./components/Footer";
-import Inicio from "./components/Inicio"; 
+import Inicio from "./components/Inicio";
 import FormularioRegistro from "./components/FormularioRegistro";
 import FormularioLogin from "./components/FormularioLogin";
+import Header from "./components/Header";
+import Productos from "./components/Productos";
+import AgregarProducto from "./components/AgregarProducto";
 
-function App() {
+import "./App.css";
 
-  // Estado que almacena la categoría seleccionada
+
+/*
+=========================================================
+COMPONENTE: SistemaSOFINV
+
+Descripción:
+Contenido principal del sistema SOFINV después
+de iniciar sesión.
+=========================================================
+*/
+
+function SistemaSOFINV() {
+
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
-  /*=========================================================
-  Estado que controla qué pantalla se muestra.
-  inicio
-  login
-  registro
-  sistema
+
+
+  /*
+  =========================================================
+  Información de las categorías
   =========================================================
   */
- const [pantalla, setPantalla] = useState("inicio");
 
-
-
-  // Información de las categorías
   const categorias = [
     {
       nombre: "Aseo",
@@ -42,6 +52,7 @@ function App() {
         "Ambientador"
       ]
     },
+
     {
       nombre: "Ferretería",
       imagen: "/IMAGES/Productos de ferreteria pagina.jpg",
@@ -54,6 +65,7 @@ function App() {
         "Pintura"
       ]
     },
+
     {
       nombre: "Papelería",
       imagen: "/IMAGES/Productos de papeleria pagina.jpg",
@@ -66,6 +78,7 @@ function App() {
         "Tijeras"
       ]
     },
+
     {
       nombre: "Bisutería",
       imagen: "/IMAGES/Bisuteria.jpg",
@@ -79,72 +92,12 @@ function App() {
       ]
     }
   ];
-  /*
-=========================================================
-Si el usuario aún no ha iniciado sesión,
-se muestra la pantalla de bienvenida.
-=========================================================
-*/
 
-if (pantalla === "inicio") {
-
-  return (
-
-    <Inicio
-      onLogin={() => setPantalla("login")}
-      onRegistro={() => setPantalla("registro")}
-    />
-
-  );
-
-}
-
-/*
-=========================================================
-Muestra el formulario de registro.
-=========================================================
-*/
-
-if (pantalla === "registro") {
-
-  return (
-
-    <FormularioRegistro
-
-      volver={() => setPantalla("inicio")}
-
-    />
-
-  );
-
-}
-
-/*
-=========================================================
-Muestra el formulario de inicio de sesión.
-=========================================================
-*/
-
-if (pantalla === "login") {
-
-  return (
-
-    <FormularioLogin
-
-      volver={() => setPantalla("inicio")}
-
-      ingresarSistema={() => setPantalla("sistema")}
-
-    />
-
-  );
-
-}
 
   return (
     <>
       <Header />
-
+      
       <Navbar />
 
       <Slider />
@@ -152,6 +105,7 @@ if (pantalla === "login") {
       <div className="contenedor">
 
         <div className="titulo">
+
           <h2>Descubre nuestros productos</h2>
 
           <p>
@@ -160,7 +114,9 @@ if (pantalla === "login") {
             Ofrecemos soluciones prácticas y de calidad adaptadas a las
             necesidades diarias de la institución.
           </p>
+
         </div>
+
 
         <div className="cards">
 
@@ -170,17 +126,22 @@ if (pantalla === "login") {
               nombre={categorias[0].nombre}
               imagen={categorias[0].imagen}
               descripcion={categorias[0].descripcion}
-              onClick={() => setCategoriaSeleccionada(categorias[0])}
+              onClick={() =>
+                setCategoriaSeleccionada(categorias[0])
+              }
             />
 
             <CardCategoria
               nombre={categorias[1].nombre}
               imagen={categorias[1].imagen}
               descripcion={categorias[1].descripcion}
-              onClick={() => setCategoriaSeleccionada(categorias[1])}
+              onClick={() =>
+                setCategoriaSeleccionada(categorias[1])
+              }
             />
 
           </div>
+
 
           <div className="cards-row">
 
@@ -188,14 +149,18 @@ if (pantalla === "login") {
               nombre={categorias[2].nombre}
               imagen={categorias[2].imagen}
               descripcion={categorias[2].descripcion}
-              onClick={() => setCategoriaSeleccionada(categorias[2])}
+              onClick={() =>
+                setCategoriaSeleccionada(categorias[2])
+              }
             />
 
             <CardCategoria
               nombre={categorias[3].nombre}
               imagen={categorias[3].imagen}
               descripcion={categorias[3].descripcion}
-              onClick={() => setCategoriaSeleccionada(categorias[3])}
+              onClick={() =>
+                setCategoriaSeleccionada(categorias[3])
+              }
             />
 
           </div>
@@ -204,26 +169,210 @@ if (pantalla === "login") {
 
       </div>
 
-      {/* Modal que muestra la categoría seleccionada */}
+
+      {/* Modal de categoría seleccionada */}
+
       {categoriaSeleccionada && (
+
         <DetalleCategoria
           categoria={categoriaSeleccionada}
           onClose={() => setCategoriaSeleccionada(null)}
         />
-    
+
       )}
+
 
       <div className="contacto-mapa">
 
-    <Contacto />
+        <Contacto />
 
-    <Mapa />
+        <Mapa />
 
-</div>
-<Footer />
+      </div>
+
+      <Footer />
 
     </>
   );
 }
 
+
+/*
+=========================================================
+COMPONENTE: App
+
+Descripción:
+Gestiona las rutas principales de SOFINV mediante
+React Router.
+=========================================================
+*/
+
+function App() {
+
+  return (
+
+    <BrowserRouter>
+
+      <Routes>
+
+        {/* Página principal */}
+
+        <Route
+          path="/"
+          element={<InicioRuta />}
+        />
+
+
+        {/* Registro */}
+
+        <Route
+          path="/registro"
+          element={<RegistroRuta />}
+        />
+
+
+        {/* Inicio de sesión */}
+
+        <Route
+          path="/login"
+          element={<LoginRuta />}
+        />
+
+
+        {/* Sistema SOFINV */}
+
+        <Route
+          path="/sistema"
+          element={<SistemaSOFINV />}
+        />
+        {/* Módulo de productos */}
+
+        <Route
+        path="/productos"
+        element={<ProductosRuta />}
+        />
+
+        {/* Registrar Producto */}
+        <Route
+        path="/agregar-producto"
+        element={<AgregarProductoRuta />}
+        />
+
+      </Routes>
+
+    </BrowserRouter>
+
+  );
+
+}
+
+
+/*
+=========================================================
+RUTA: Inicio
+=========================================================
+*/
+
+function InicioRuta() {
+
+  const navigate = useNavigate();
+
+  return (
+
+    <Inicio
+
+      onLogin={() => navigate("/login")}
+
+      onRegistro={() => navigate("/registro")}
+
+    />
+
+  );
+
+}
+
+
+/*
+=========================================================
+RUTA: Registro
+=========================================================
+*/
+
+function RegistroRuta() {
+
+  const navigate = useNavigate();
+
+  return (
+
+    <FormularioRegistro
+
+      volver={() => navigate("/")}
+
+    />
+
+  );
+
+}
+
+
+/*
+=========================================================
+RUTA: Inicio de sesión
+=========================================================
+*/
+
+function LoginRuta() {
+
+  const navigate = useNavigate();
+
+  return (
+
+    <FormularioLogin
+
+      volver={() => navigate("/")}
+
+      ingresarSistema={() => navigate("/sistema")}
+
+    />
+
+  );
+
+}
+
+/*
+=========================================================
+RUTA: Agregar producto
+=========================================================
+*/
+
+function AgregarProductoRuta() {
+
+    return (
+        <>
+            <Navbar />
+
+            <AgregarProducto />
+        </>
+    );
+
+}
+
 export default App;
+
+/*
+=========================================================
+RUTA: Productos
+=========================================================
+*/
+
+function ProductosRuta() {
+
+    return (
+        <>
+            <Navbar />
+
+            <Productos />
+        </>
+    );
+
+}

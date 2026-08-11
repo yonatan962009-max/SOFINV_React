@@ -2,9 +2,9 @@
   "usuarios": [
     {
       "nombre": "Leidy",
-      "usuario": "Rodriguez",
+      "usuario": "Contabilidad",
       "correo": "Cartera@gmail.com",
-      "password": "ÑOL#1224",
+      "password": "ÑOLU#1224",
       "id": "wRd-uDlOcLo"
     },
     {
@@ -13,6 +13,34 @@
       "correo": "almacen@gmail.com",
       "password": "FAJO#1424",
       "id": "KIjTsWBEf6M"
+    },
+    {
+      "nombre": "Carolina",
+      "usuario": "Contabilidad",
+      "correo": "Contabilidad@gmail.com",
+      "password": "HAGO#1424",
+      "id": "4JynEfPEM1A"
+    },
+    {
+      "nombre": "Paula Beltran",
+      "usuario": "Mantenimiento",
+      "correo": "Mantenimiento@gmail.com",
+      "password": "KILO#5101",
+      "id": "3IvmVP8Q98U"
+    },
+    {
+      "nombre": "Usuario de prueba",
+      "usuario": "SOFINV",
+      "correo": "sofinv@gmail.com",
+      "password": "kalo1424",
+      "id": "g7K3x4TsUqE"
+    },
+    {
+      "nombre": "Usuario de prueba 2",
+      "usuario": "Usuario 2",
+      "correo": "usuario2@gmail.com",
+      "password": "lajo2404",
+      "id": "1Sih5Rnj0VE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

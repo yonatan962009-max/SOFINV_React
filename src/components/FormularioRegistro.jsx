@@ -11,7 +11,6 @@ Conceptos React utilizados:
 ✔ Eventos
 ✔ Props
 ✔ Formularios controlados
-
 =========================================================
 */
 
@@ -28,103 +27,86 @@ function FormularioRegistro({ volver }) {
     */
 
     const [nombre, setNombre] = useState("");
-
     const [usuario, setUsuario] = useState("");
-
     const [correo, setCorreo] = useState("");
-
     const [password, setPassword] = useState("");
-
     const [confirmar, setConfirmar] = useState("");
+
     /*
     =========================================================
     Estado que almacena mensajes de validación.
     =========================================================
     */
-   const [mensaje, setMensaje] = useState("");
 
-
-
-    /*
-    ============================================
-    Función temporal del formulario.
-
-    Más adelante enviaremos la información
-    mediante fetch() al json-server.
-    ============================================
-    */
+    const [mensaje, setMensaje] = useState("");
 
     /*
     =========================================================
-    Valida la información del formulario.
-    En la siguiente fase esta función enviará la
-    información al servicio web mediante fetch().
+    Valida la información del formulario y envía
+    los datos al backend de SOFINV.
     =========================================================
     */
-   const manejarRegistro = async (e) => {
 
-    e.preventDefault();
+    const manejarRegistro = async (e) => {
 
-    // Verifica que ningún campo esté vacío
+        e.preventDefault();
 
-    if (
+        // Verifica que ningún campo esté vacío
 
-        nombre === "" ||
+        if (
+            nombre === "" ||
+            usuario === "" ||
+            correo === "" ||
+            password === "" ||
+            confirmar === ""
+        ) {
 
-        usuario === "" ||
+            setMensaje("Todos los campos son obligatorios.");
 
-        correo === "" ||
+            return;
+        }
 
-        password === "" ||
+        // Verifica que ambas contraseñas coincidan
 
-        confirmar === ""
+        if (password !== confirmar) {
 
-    ){
+            setMensaje("Las contraseñas no coinciden.");
 
-        setMensaje("Todos los campos son obligatorios.");
+            return;
+        }
 
-        return;
+        try {
 
-    }
+            await registrarUsuario({
 
-    // Verifica que ambas contraseñas coincidan
+                nombre,
 
-    if(password !== confirmar){
+                usuario,
 
-        setMensaje("Las contraseñas no coinciden.");
+                correo,
 
-        return;
+                // El backend utiliza "contrasena"
+                contrasena: password
 
-    }
+            });
 
-    try{
-        await registrarUsuario({
-            
-            nombre,
-            
-            usuario,
-            
-            correo,
-            
-            password
-        
-    });
+            setMensaje("Usuario registrado correctamente.");
 
-    setMensaje("Usuario registrado correctamente.");
+            setNombre("");
+            setUsuario("");
+            setCorreo("");
+            setPassword("");
+            setConfirmar("");
 
-    setNombre("");
+        } catch (error) {
 
-    setUsuario("");
+            console.error("Error al registrar el usuario:", error);
 
-    setCorreo("");
+            setMensaje("Error al registrar el usuario.");
 
-    setPassword("");
+        }
 
-    setConfirmar("");
-}catch(error){
-    setMensaje("Error al registrar el usuario.");
-}
-};
+    };
 
     return (
 
@@ -201,21 +183,24 @@ function FormularioRegistro({ volver }) {
 
                     />
 
-                    <button>
+                    <button type="submit">
 
                         Registrarse
 
                     </button>
 
                 </form>
+
                 {
-                mensaje &&
-                <p className="mensaje">
-                    {mensaje}
-                </p>
+                    mensaje &&
+                    <p className="mensaje">
+                        {mensaje}
+                    </p>
                 }
 
                 <button
+
+                    type="button"
 
                     className="volver"
 
@@ -232,7 +217,6 @@ function FormularioRegistro({ volver }) {
         </section>
 
     );
-
 }
 
 export default FormularioRegistro;
